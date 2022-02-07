@@ -35,7 +35,7 @@ A Insurance All fez uma pesquisa com cerca de __380 mil clientes__ sobre o inter
 
 O time de produtos selecionou __127 mil novos clientes__ que não responderam a pesquisa para participar de uma campanha, no qual receberão a oferta do novo produto de seguro de automóveis. A oferta será feita pelo time de vendas através de ligações telefônicas.
 
-### 1.2 Questão do negócio:
+### 1.2 Questão de negócio:
 
 Dado o contexto acima, sabe-se que time de vendas tem uma capacidade de realizar apenas __20 mil ligações__ dentro do período da campanha. Ou seja, para realizar essa campanha, a empresa possui recursos limitados e precisa alcançar com prioridade, às pessoas que de supostamente estarão interessadas no novo produto.
 
@@ -144,6 +144,8 @@ Se tratando de um problema de *Learning to Rank*, foram utilizados algoritmos de
 ***Model Name*** | ***Size MB*** | ***Precision@k*** | ***Recall@k*** | 
 | -------------- | ------------- | ----------------- | -------------- |
 |LGBM Classifier | 0,58101       | 0.3826	 |0.4913 |
+
+![image](Images/acc.png)     ![image](Images/lift.png)
 
 A escolha do modelo levou em consideração o tamanho do modelo criado, evitando modelos muito densos e que poderiam acarretar em custos para sua utilização - nesse aspecto descartou-se o uso da Random Forest, e por haver muita semelhança nos resultados entre o XGBoost e LGBM, por opção, foi utilizado o LGBM.
 
