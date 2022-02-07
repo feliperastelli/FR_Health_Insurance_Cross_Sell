@@ -156,23 +156,22 @@ A escolha do modelo levou em consideração o tamanho do modelo criado, evitando
 | Validação | 0.371924         | 0.473303	      |
 | Teste     | 0.326964         | 0.420609	      |
 
-## 5. Resultado final - Performance de Negócio
+## 5. Questões e Performance de Negócio
 
 O resultado final do projeto foi satisfatório para a maior parte das lojas abrangidas nos dados, conforme gráfico abaixo (Essas lojas em específico podem conter particularidades e possivelmente num segundo ciclo desse projeto, algo poderia ser feito para melhor a performance e predição para elas).
 
-![image](https://user-images.githubusercontent.com/77105763/143149982-0e6c1f18-3874-412a-a82f-01ff03b13c85.png)
-
-A maior parte das lojas tiveram o erro MAPE muito próximo do erro performado no modelo - **MAPE Error de 9%**
-
-Como indicado no resumo prévio do projeto, o resultado que pode ser obtido utilizando-se do modelo, considerando o melhor e pior cenário, é o seguinte:
-
-| __Scenarios__ | __Values__ |
-| ------------- | -----------|
-| predictions	| US$ 282,662,848.00 |
-| worst scenario | US$ 281,907,880.11 |
-| best scenario	| US$ 283,417,771.65 |
+### a) Principais Insights sobre os atributos mais relevantes de clientes interessados em adquirir um seguro de automóvel:
 
 
+
+### b) Alcance com 20.000 ligações:
+
+
+
+### c) Alcance com 40.000 ligações:
+
+
+### c) Ligações necessárias para atingir 80% dos clientes interessados:
 
 Podemos observar o performance do modelo, avaliando a relação entre as vendas (dados de teste) e as predições:
 
