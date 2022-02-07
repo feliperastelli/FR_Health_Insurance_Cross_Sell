@@ -131,7 +131,7 @@ Se tratando de um problema de *Learning to Rank*, foram utilizados algoritmos de
 
 *As métricas escolhidas para avaliar o modelo foram a PRECISION @K e RECALL @K, justamente por ser um projeto de learning to rank*
 
-***Model Name*** | ***Size MB*** | ***Precision@k*** | ***Recall@k*** | ***Precision@k_CV*** | ***CV_STD*** | ***Recall@k_CV*** |***CV_STD_Recall*** |
+|***Model Name*** | ***Size MB*** | ***Precision@k*** | ***Recall@k*** | ***Precision@k_CV*** | ***CV_STD*** | ***Recall@k_CV*** |***CV_STD_Recall*** |
 | -------------- | ------------- | ----------------- | -------------- |--------------------- |------------- |------------------ |------------------- |
 |K Neighbors Classifier KNN | 33.885993 | 0.310068 | 0.394586 | 0.263660 | 0.001747	 | 0.848534	 | 0.005564 |
 |Logistic Regression        |0.000762 | 0.309283 | 0.393588 |0.268140 | 0.001454 | 0.862952 | 0.004704 |
@@ -141,7 +141,7 @@ Se tratando de um problema de *Learning to Rank*, foram utilizados algoritmos de
 
 **Performance final do modelo escolhido após Hyperparameter Fine Tuning + junção dos dados de treino e validação:**
 
-***Model Name*** | ***Size MB*** | ***Precision@k*** | ***Recall@k*** | 
+|***Model Name*** | ***Size MB*** | ***Precision@k*** | ***Recall@k*** | 
 | -------------- | ------------- | ----------------- | -------------- |
 |LGBM Classifier | 0,58101       | 0.3826	 |0.4913 |
 
@@ -151,12 +151,14 @@ A escolha do modelo levou em consideração o tamanho do modelo criado, evitando
 
 **Generalização do Modelo:**
 
-***Data***  |***Precision@k*** | ***Recall@k*** | 
+|***Data***  |***Precision@k*** | ***Recall@k*** | 
 | ----------| -----------------| -------------- |
 | Validação | 0.371924         | 0.473303	      |
 | Teste     | 0.326964         | 0.420609	      |
 
 ## 5. Questões e Performance de Negócio
+
+![image](Images/rank.png)
 
 O resultado final do projeto foi satisfatório para a maior parte das lojas abrangidas nos dados, conforme gráfico abaixo (Essas lojas em específico podem conter particularidades e possivelmente num segundo ciclo desse projeto, algo poderia ser feito para melhor a performance e predição para elas).
 
@@ -186,6 +188,27 @@ O resultado final do projeto foi satisfatório para a maior parte das lojas abra
   
   ![image](Images/80k.png)
 
+## 6. Resultados Financeiros
+
+- Considerando que o valor médio do seguro de automóveis é de US$ 1.674 (conforme dados de 2022 extraídos do Quadrant Information Services);
+
+- Que o custo individual para cada campanha de marketing (contato telefônico) seja de 1% do valor do produto - $ 16,74, and;
+
+- O valor calculado é uma estimativa máxima:
+
+|***20K***  |***Custo*** | ***Receita*** | ***Lucro*** |
+| ----------| --------------| ------------- |------------ |
+| Random    | 4.017.600,00  | 401.760.000,00 |	397.742.400,00 |
+| Model     |10.845.656,84  | 1.084.565.683,80 |1.073.720.026,96  |
+
+Diferença em $: 675.977.626,96 | Diferença em %: 169,95%
+
+|***40K***  |***Custo*** | ***Receita*** | ***Lucro*** |
+| ----------| --------------| ------------- |------------ |
+| Random    | 8.035.200,00  | 803.520.000,00 |	795.484.800,00 |
+| Model     |17.608.242,87  | 1.760.824.286,64 |1.743.216.043,77 |
+
+Diferença em $: 947.731.243,77  | Diferença em %: 119,14%
 
 ## 6. Conclusão
 
