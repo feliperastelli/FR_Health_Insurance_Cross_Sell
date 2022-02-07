@@ -145,7 +145,7 @@ Se tratando de um problema de *Learning to Rank*, foram utilizados algoritmos de
 | -------------- | ------------- | ----------------- | -------------- |
 |LGBM Classifier | 0,58101       | 0.3826	 |0.4913 |
 
-![image](Images/acc.png)     ![image](Images/lift.png)
+![image](Images/modelo_final.png)
 
 A escolha do modelo levou em consideração o tamanho do modelo criado, evitando modelos muito densos e que poderiam acarretar em custos para sua utilização - nesse aspecto descartou-se o uso da Random Forest, e por haver muita semelhança nos resultados entre o XGBoost e LGBM, por opção, foi utilizado o LGBM.
 
