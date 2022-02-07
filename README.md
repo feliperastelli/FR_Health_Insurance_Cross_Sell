@@ -1,6 +1,9 @@
+
+
 ### :pushpin: [__Read in English__](https://github.com/feliperastelli/FR-Rossmann_Sales_Model/blob/main/README-en.md)
 
 # Health Insurance - Cross Sell
+![image](Images/hp1.png)
 
 O objetivo desse projeto é fornecer para o CFO da Rossmann Drug Stores, um **modelo de previsão de vendas** para as próximas seis semanas para que ele possa definir um orçamento específico para reformas nas lojas. O modelo de previsão atualmente utilizado não atende as necessidades da empresa, portanto, o modelo de machine learning desenvolvido nesse projeto veio como uma solução exata para esse problema de negócio.
 
@@ -22,7 +25,7 @@ Para acessar basta apenas ter o aplicativo instalado no smartphone ou PC, criar 
 
 [<img alt="Telegram" src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"/>]( http://t.me/vs_rossmannbot)
 
-## 1. Sobre a Rossmann Drug Store
+## 1. Sobre a Insurance All
 
 ### 1.1 Contexto do negócio:
 
@@ -64,7 +67,7 @@ Os dados foram disponibilizados pela empresa na plataforma do Kaggle: https://ww
 
 ### 1.4 Premissas do negócio:
 
-- Os dados originais, com o target, foram utilizados para treino e teste.
+- Os dados originais, com a variável resposta, foram utilizados para treino e teste.
 - Para analisar e responder as questões propostas, foram utilizados os dados de produção (127k).
 
 ## 2. Planejamento da solução:
@@ -114,18 +117,15 @@ O projeto foi desenvolvido através do método CRISP-DM, aplicando os seguintes 
 
 ## 4. Performance dos Modelos de Machine Learning:
 
-O dados do projeto foram testados com modelos lineares e não lineares.Foi utilizada a estratégia de selecionar 5 tipos de modelos: Modelo de média, dois modelos lineares, e dois não-lineares. A média por exemplo serviu como base de referência. Os modelos lineares servem para avaliar a complexidade de aprendizado do conjunto de dados. Caso a performance fosse ruim, poderia entender que seria necessário um modelo mais complexo. 
+Se tratando de um problema de *Learning to Rank*, foram utilizados algoritmos de classificação para calcular a cada cliente, sua propensão em aceitar o novo produto. Com os valores de "score" determinados, o objetivo foi ordená-los do maior para o menor, avaliando a capacidade que o Modelo teve de ranquear as maiores propensões no topo. Para esse projeto, foram selecionados os seguintes algorítmos: 
 
-**- Modelos Lineares:**
+**- Modelos Utilizados:**
 
-   - Média
-   - Linear Regression 
-   - Linear Regression Regularized
-
-**- Modelos Não Lineares:**
-
-   - Random Forest Regressor 
-   - XGBoost Regressor
+   - K Neighbors Classifier - KNN
+   - Logistic Regression 
+   - Random Forest Classifier
+   - Gradient Boosting Classifier - XGBoost
+   - Light Gradient Boosting Machine Classifier - LGBM
 
 **Comparação da performance dos modelos:**
 
