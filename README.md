@@ -3,7 +3,7 @@
 ### :pushpin: [__Read in English__](https://github.com/feliperastelli/FR-Rossmann_Sales_Model/blob/main/README-en.md)
 
 # Health Insurance - Cross Sell
-![FR-Health_Insurance_Cross_Sell](Images/capa.png)
+![FR-Health_Insurance_Cross_Sell](Images/capa_novo.png)
 
 O objetivo desse projeto é fornecer para a empresa, um modelo de machine learning que calcule a propensão de interesse dos novos clientes em adquirir um novo produto da empresa, ranqueando-os pelo seu "score" calculado. Ou seja, utilizar um modelo de classificação para um problema de *Learning to Rank*
 
