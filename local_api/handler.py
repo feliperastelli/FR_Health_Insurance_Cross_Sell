@@ -20,7 +20,6 @@ def healthinsurance_predict():
             
         else: # multiple example
             test_raw = pd.DataFrame( test_json, columns=test_json[0].keys() )
-            #test_raw2 = pd.DataFrame( test_json, columns=test_json[0].keys() )
             test_raw2 = test_raw.copy()
             
         # Instantiate Rossmann class
