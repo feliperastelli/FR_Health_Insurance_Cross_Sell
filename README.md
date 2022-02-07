@@ -166,16 +166,26 @@ O resultado final do projeto foi satisfatório para a maior parte das lojas abra
 
 ### b) Alcance com 20.000 ligações:
 
+- Com 20.000 ligações, o que representa 15,74% do conjunto de dados, pode-se contatar aproximadamente 42,5% dos clientes interessados no conjunto de dados;
+- O resultado com a utilização do modelo, será aproximadamente 2,7x melhor que o resultado aleatório
 
+  ![image](Images/20k.png)
 
 ### c) Alcance com 40.000 ligações:
 
+- Com 40.000 ligações, o que representa 31,48% do conjunto de dados, pode-se contatar aproximadamente 69% dos clientes interessados no conjunto de dados;
+- O resultado com a utilização do modelo, será aproximadamente 2,2x melhor que o resultado aleatório
 
+  ![image](Images/40k.png)
+  
 ### c) Ligações necessárias para atingir 80% dos clientes interessados:
 
-Podemos observar o performance do modelo, avaliando a relação entre as vendas (dados de teste) e as predições:
+- 80% dos clientes interessados representam 38% dos clientes no conjunto de dados.
+- Serão necessárias 48.274 ligações para contatar 80% dos clientes interessados.
+- Com 48.274 chamadas o resultado será aproximadamente 2,10x melhor que o resultado aleatório
+  
+  ![image](Images/80k.png)
 
-![image](https://user-images.githubusercontent.com/77105763/143151060-c9ef9bcd-a266-4a1a-9457-e99a203d77d6.png)
 
 ## 6. Conclusão
 
