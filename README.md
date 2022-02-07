@@ -5,25 +5,31 @@
 # Health Insurance - Cross Sell
 ![FR-Health_Insurance_Cross_Sell](Images/capa.png)
 
-O objetivo desse projeto é fornecer para o CFO da Rossmann Drug Stores, um **modelo de previsão de vendas** para as próximas seis semanas para que ele possa definir um orçamento específico para reformas nas lojas. O modelo de previsão atualmente utilizado não atende as necessidades da empresa, portanto, o modelo de machine learning desenvolvido nesse projeto veio como uma solução exata para esse problema de negócio.
+O objetivo desse projeto é fornecer para a empresa, um modelo de machine learning que calcule a propensão de interesse dos novos clientes em adquirir um novo produto da empresa, ranqueando-os pelo seu "score" calculado. Ou seja, utilizar um modelo de classificação para um problema de *Learning to Rank*
 
-O projeto foi desenvolvido através da técnica CRISP-DM, e ao final do primeiro ciclo de desenvolvimento foi possível produzir um modelo de previsão com indíce **MAPE Error de 9%** utilizando o algoritmo **XGBoost**.
+O projeto foi desenvolvido através da técnica CRISP-DM, e ao final do primeiro ciclo de desenvolvimento foi possível produzir um modelo os seguintes resultados de métricas calculadas:
 
-Em termos de negócio, o resultado desse modelo de previsão pode ser resumido com os números abaixo:
+- Precision @K: 0.3826
+- Recall @K: 0.4913
 
-| __Scenarios__ | __Values__ |
-| ------------- | -----------|
-| predictions	| US$ 282,662,848.00 |
-| worst scenario | US$ 281,907,880.11 |
-| best scenario	| US$ 283,417,771.65 |
+*Precisão em k é a proporção de itens recomendados no conjunto top-k que são relevantes*
 
-*O "worst scenario" considera o erro calculado do modelo (MAE) negativamente e o "best scenario", positivamente.
+*Recall em k é a proporção de itens relevantes encontrados nas recomendações top-k*
 
-Para visualização do resultado da previsão de cada loja, foi construindo um bot no aplicativo Telegram, onde o usuário pode inserir o número da loja e terá o retorno da previsão calculada pelo modelo que foi colocado em produção no Heroku. Ou seja, foi realizado o deploy em produção do modelo e bot para que possam ser acessados de qualquer lugar.
+Em termos financeiros, o modelo apresentado, permite um resultado 2,7x melhor que método aleatório de seleção dos clientes, tendo uma estimativa (valores assumidos)
 
-Para acessar basta apenas ter o aplicativo instalado no smartphone ou PC, criar uma conta, e solicitar para o contato Bot o número da loja. Ex: '/22', '/50'. Faça o teste:
+|***20K***  |***Custo*** | ***Receita*** | ***Lucro*** |
+| ----------| --------------| ------------- |------------ |
+| Random    | 4.017.600,00  | 401.760.000,00 |	397.742.400,00 |
+| Model     |10.845.656,84  | 1.084.565.683,80 |1.073.720.026,96  |
 
-[<img alt="Telegram" src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"/>]( http://t.me/vs_rossmannbot)
+ - Diferença em $: 675.977.626,96 | Diferença em %: 169,95%
+
+Para visualização do resultado do ranking, foi construído uma planilha na plataforma do Google, para que o usuário possa inserir os dados de novos clientes (ou uma lista) e ter retorno do seu "score" calculado e a ordenação desses novos clientes.
+
+Para acessar basta acessar a planilha, e acessar a função "Health Insurance Prediction". Faça o teste: encurtador.com.br/vFGVZ
+
+![image](Images/sheets_model.png)
 
 ## 1. Sobre a Insurance All
 
@@ -48,7 +54,7 @@ O time de negócios definiu as seguintes questões à serem avaliadas e respondi
 
 ### 1.3 Sobre os dados:
 
-Os dados foram disponibilizados pela empresa na plataforma do Kaggle: https://www.kaggle.com/c/rossmann-store-sales/data
+Os dados foram disponibilizados pela empresa na plataforma do Kaggle: https://www.kaggle.com/anmolkumar/health-insurance-cross-sell-prediction
 
 |***Atributo*** | ***Descrição*** |
 | -------- | --------- |
@@ -88,7 +94,7 @@ O projeto foi desenvolvido através do método CRISP-DM, aplicando os seguintes 
 
 **Passo 07 - Modelagem de Machine Learning:** Nessa etapa foram feitos os testes e treinamento de alguns modelos de machine learning, onde foi possível comparar suas respectivas performances e feita a escolha do modelo ideal para o projeto. Para todos, foi utilizada também a técnica de Cross Validation para garantir a performance real sobre os dados selecionados.
 
-**Passo 08 - Hyperparameter Fine Tunning e Modelo Final:** Tendo a escolha do algorotimo LightGBM na etapa anterior, foi feita uma randomização para escolher os melhores valores para cada um dos parâmetros do modelo. Após isso, os dados de treino e validação foram unificados para treinamento do modelo final, que foi avaliado sob os dados de teste para verificar o poder de generalização.
+**Passo 08 - Hyperparameter Fine Tunning e Modelo Final:** Tendo a escolha do algorotimo após a etapa anterior, foi feita uma randomização para escolher os melhores valores para cada um dos parâmetros do modelo. Após isso, os dados de treino e validação foram unificados para treinamento do modelo final, que foi avaliado sob os dados de teste para verificar o poder de generalização.
 
 **Passo 09 - Performance de Negócio:** O objetivo dessa etapa foi de fato demonstrar o resultado do projeto, aplicando o modelo treinado sobre os dados de produção. Os objetivos finais do projeto foram então desenvolvidos, onde as questões do negócio foram analisadas e respondidas.
 
@@ -133,7 +139,7 @@ Se tratando de um problema de *Learning to Rank*, foram utilizados algoritmos de
 
 |***Model Name*** | ***Size MB*** | ***Precision@k*** | ***Recall@k*** | ***Precision@k_CV*** | ***CV_STD*** | ***Recall@k_CV*** |***CV_STD_Recall*** |
 | -------------- | ------------- | ----------------- | -------------- |--------------------- |------------- |------------------ |------------------- |
-|K Neighbors Classifier KNN | 33.885993 | 0.310068 | 0.394586 | 0.263660 | 0.001747	 | 0.848534	 | 0.005564 |
+|K Neighbors Classifier  | 33.885993 | 0.310068 | 0.394586 | 0.263660 | 0.001747	 | 0.848534	 | 0.005564 |
 |Logistic Regression        |0.000762 | 0.309283 | 0.393588 |0.268140 | 0.001454 | 0.862952 | 0.004704 |
 |Random Forest Classifier   |6.585246 | 0.365552 | 0.465195	 |0.283717 | 0.001355 | 0.913083 | 0.004371 |
 |XGBoost Classifier         |0.118501 | 0.364180 | 0.463448	 |0.283511	 | 0.001783 | 0.912420 | 0.005692 |
@@ -164,7 +170,9 @@ O resultado final do projeto foi satisfatório para a maior parte das lojas abra
 
 ### a) Principais Insights sobre os atributos mais relevantes de clientes interessados em adquirir um seguro de automóvel:
 
-
+- Clientes que já tiveram danos em seus veículos possuem maior interesse em adquirir seguro de automóvel;
+- Clientes com idade entre 30 a 55 anos possuem maior interesse em adquirir seguro de automóvel;
+- Clientes que pagam seguros de saúde anuais nos valores entre $ 30.000 a $ 40.000 tem maior interesse e um novo produto.
 
 ### b) Alcance com 20.000 ligações:
 
@@ -192,7 +200,7 @@ O resultado final do projeto foi satisfatório para a maior parte das lojas abra
 
 - Considerando que o valor médio do seguro de automóveis é de US$ 1.674 (conforme dados de 2022 extraídos do Quadrant Information Services);
 
-- Que o custo individual para cada campanha de marketing (contato telefônico) seja de 1% do valor do produto - $ 16,74, and;
+- Que o custo da operação, de produção do produto e mais o CAC, seja de 1% do valor do produto - $ 16,74, e;
 
 - O valor calculado é uma estimativa máxima:
 
@@ -210,10 +218,16 @@ Diferença em $: 675.977.626,96 | Diferença em %: 169,95%
 
 Diferença em $: 947.731.243,77  | Diferença em %: 119,14%
 
-## 6. Conclusão
+## 7. Conclusão
 
-O projeto desenvolvido foi concluído com êxito, onde foi possível projetar as vendas das próximas semanas para que o CFO tenha informações reais para criar o budget das lojas, podendo consultar em tempo real cada predição.
+O projeto desenvolvido foi concluído com êxito, mesmo considerando o baixo número de features disponibilizadas, onde foi possível verificar através das métricas (Top K), o quanto o modelo se supera com relação ao método randômico. Através desse projeto, pode-se verificar a importância da utilização da técnica de *Learning to Rank* em empresas ou projetos com recursos limitados, técnica essa que pode ainda ser aplicada em sistemas de recomendação, sistemas de pesquisas e ordenação de vitrine.
 
-- O deploy do modelo desenvolvido e da aplicação do Bot do Telegram foram construídos no ambiente em nuvem do **Heroku** e estão em funcionamento.
+- O deploy do modelo desenvolvido e da aplicação da Planilha Google foram construídos no ambiente em nuvem do **Heroku** e estão em funcionamento.
 
 - Toda documentação do projeto pode ser consultada no repositório, incluindo os notebooks desenvolvidos e todos os scritps finais para as aplicações web.
+
+## Próximos Ciclos
+
+- Aplicar novas derivações de features;
+- Realizar balanceamento dos dados;
+- Aplicar outros modelos de ML.
