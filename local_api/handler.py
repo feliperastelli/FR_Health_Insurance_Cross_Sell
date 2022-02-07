@@ -5,7 +5,7 @@ from healthinsurance.HealthInsurance import HealthInsurance
 
 # loading model
 path = '/home/felipe_rastelli/repositorios/pa004_health_insurance_cross_sell/health_insurance_cross-sell/'
-model = pickle.load( open( path + 'src/model/model_health_insurance.pkl', 'rb' ) )
+model = pickle.load( open( path + 'src/model/model_health_insurance_final.pkl', 'rb' ) )
 
 # initialize API
 app = Flask( __name__ )
@@ -20,21 +20,25 @@ def healthinsurance_predict():
             
         else: # multiple example
             test_raw = pd.DataFrame( test_json, columns=test_json[0].keys() )
+            #test_raw2 = pd.DataFrame( test_json, columns=test_json[0].keys() )
+            test_raw2 = test_raw.copy()
             
         # Instantiate Rossmann class
         pipeline = HealthInsurance()
-        
+                    
+           
         # data cleaning
         df1 = pipeline.data_cleaning( test_raw )
-        
+      
         # feature engineering
         df2 = pipeline.feature_engineering( df1 )
         
         # data preparation
         df3 = pipeline.data_preparation( df2 )
-        
+               
         # prediction
-        df_response = pipeline.get_prediction( model, test_raw, df3 )
+        df_response = pipeline.get_prediction( model, test_raw2, df3 )
+       
         
         return df_response
     

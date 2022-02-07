@@ -15,6 +15,7 @@ class HealthInsurance(object):
         
     def data_cleaning( self, df1 ):
         
+        df1.columns = ['id', 'gender', 'age', 'driving_license', 'region_code', 'previously_insured', 'vehicle_age', 'vehicle_damage', 'annual_premium', 'policy_sales_channel','vintage']
         df1['policy_sales_channel'] = df1['policy_sales_channel'].astype(int)
         df1['region_code'] = df1['region_code'].astype(int)
 
@@ -51,11 +52,11 @@ class HealthInsurance(object):
         df3 = pd.get_dummies( df3, prefix='vehicle_age', columns=['vehicle_age'] )
 
         # policy_sales_channel - Frequency Encoding
-        df3.loc[:, 'policy_sales_channel'] = df3['policy_sales_channel'].map( self.fe_policy_sales_channel_scaler )
+        df3.loc[:,'policy_sales_channel'] = df3['policy_sales_channel'].map( self.fe_policy_sales_channel_scaler )
         
+        	        
         # Feature Selection
-        cols_selected = ['annual_premium', 'vintage', 'age', 'region_code', 'vehicle_damage', 'previously_insured',
-                         'policy_sales_channel']
+        cols_selected = ['annual_premium','vintage', 'age', 'region_code', 'vehicle_damage', 'policy_sales_channel', 'previously_insured']
         
         return df3[ cols_selected ]
     
@@ -67,6 +68,6 @@ class HealthInsurance(object):
         
         # join prediction into original data
         original_data['score'] = pred[:,1].tolist()
-        
+             
         return original_data.to_json( orient='records', date_format='iso' )
         
