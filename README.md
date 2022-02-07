@@ -29,15 +29,15 @@ Para acessar basta apenas ter o aplicativo instalado no smartphone ou PC, criar 
 
 ### 1.1 Contexto do negócio:
 
-A Insurance All é uma empresa fictícia que fornece como produto principal, seguro de saúde para seus clientes. Nesse contexto, time de produtos está analisando a possibilidade de oferecer aos segurados, um novo produto: Um seguro de automóveis.Assim como o seguro de saúde, os clientes desse novo plano de seguro de automóveis precisam pagar um valor anualmente à Insurance All para obter um valor assegurado pela empresa, destinado aos custos de um eventual acidente ou dano ao veículo.
+A Insurance All é uma empresa fictícia que fornece como produto principal, seguro de saúde para seus clientes. Nesse contexto, time de produtos está analisando a possibilidade de oferecer aos segurados, um novo produto: __Um seguro de automóveis__.Assim como o seguro de saúde, os clientes desse novo plano de seguro de automóveis precisam pagar um valor anualmente à Insurance All para obter um valor assegurado pela empresa, destinado aos custos de um eventual acidente ou dano ao veículo.
 
-A Insurance All fez uma pesquisa com cerca de 380 mil clientes sobre o interesse em aderir a um novo produto de seguro de automóveis, no ano passado. Todos os clientes demonstraram interesse ou não em adquirir o seguro de automóvel e essas respostas ficaram salvas em um banco de dados junto com outros atributos dos clientes.
+A Insurance All fez uma pesquisa com cerca de __380 mil clientes__ sobre o interesse em aderir a um novo produto de seguro de automóveis, no ano passado. Todos os clientes demonstraram interesse ou não em adquirir o seguro de automóvel e essas respostas ficaram salvas em um banco de dados junto com outros atributos dos clientes.
 
-O time de produtos selecionou 127 mil novos clientes que não responderam a pesquisa para participar de uma campanha, no qual receberão a oferta do novo produto de seguro de automóveis. A oferta será feita pelo time de vendas através de ligações telefônicas.
+O time de produtos selecionou __127 mil novos clientes__ que não responderam a pesquisa para participar de uma campanha, no qual receberão a oferta do novo produto de seguro de automóveis. A oferta será feita pelo time de vendas através de ligações telefônicas.
 
 ### 1.2 Questão do negócio:
 
-Dado o contexto acima, sabe-se que time de vendas tem uma capacidade de realizar 20 mil ligações dentro do período da campanha. Ou seja, para realizar essa campanha, a empresa possui recursos limitados e precisa alcançar com prioridade, às pessoas que de supostamente estarão interessadas no novo produto.
+Dado o contexto acima, sabe-se que time de vendas tem uma capacidade de realizar apenas __20 mil ligações__ dentro do período da campanha. Ou seja, para realizar essa campanha, a empresa possui recursos limitados e precisa alcançar com prioridade, às pessoas que de supostamente estarão interessadas no novo produto.
 
 O time de negócios definiu as seguintes questões à serem avaliadas e respondidas dentro desse projeto:
 
@@ -129,21 +129,32 @@ Se tratando de um problema de *Learning to Rank*, foram utilizados algoritmos de
 
 **Comparação da performance dos modelos:**
 
-***Model Name*** | ***MAE CV*** | ***MAPE CV*** | ***RMSE CV*** |
-| ---------------- | ---------- | --------- | ---------- |
-|Random Forest Regressor | 842.56 +/- 220.07 | 0.12 +/- 0.02	 | 1264.33 +/- 323.29 |
-|XGBoost Regressor | 1048.45 +/- 172.04 | 0.14 +/- 0.02	 | 1513.27 +/- 234.33 |
-|Average Model | 1354.80 | 0.45	 | 1835.13 |
-|Linear Regression | 2081.73 +/- 295.63 | 0.3 +/- 0.02	 | 2952.52 +/- 468.37 |
-|Lasso | 2116.38 +/- 341.5 | 0.29 +/- 0.01	 | 3057.75 +/- 504.26 |
+*As métricas escolhidas para avaliar o modelo foram a PRECISION @K e RECALL @K, justamente por ser um projeto de learning to rank*
 
-**Performance final do modelo escolhido após Hyperparameter Fine Tuning:**
+***Model Name*** | ***Size MB*** | ***Precision@k*** | ***Recall@k*** | ***Precision@k_CV*** | ***CV_STD*** | ***Recall@k_CV*** |***CV_STD_Recall*** |
+| -------------- | ------------- | ----------------- | -------------- |--------------------- |------------- |------------------ |------------------- |
+|K Neighbors Classifier KNN | 33.885993 | 0.310068 | 0.394586 | 0.263660 | 0.001747	 | 0.848534	 | 0.005564 |
+|Logistic Regression        |0.000762 | 0.309283 | 0.393588 |0.268140 | 0.001454 | 0.862952 | 0.004704 |
+|Random Forest Classifier   |6.585246 | 0.365552 | 0.465195	 |0.283717 | 0.001355 | 0.913083 | 0.004371 |
+|XGBoost Classifier         |0.118501 | 0.364180 | 0.463448	 |0.283511	 | 0.001783 | 0.912420 | 0.005692 |
+|LGBM Classifier            |0.334826 | 0.364082 | 0.463323 |0.284217 | 0.001085 | 0.914692 | 0.003511 |
 
-***Model Name*** | ***MAE*** | ***MAPE*** | ***RMSE*** |
-| -------- | --------- | --------- | --------- |
-|XGBoost Regressor | 673.394631 | 0.097298	 | 965.731681 |
+**Performance final do modelo escolhido após Hyperparameter Fine Tuning + junção dos dados de treino e validação:**
 
-## 5. Resultado final - Model performance vs Business Values
+***Model Name*** | ***Size MB*** | ***Precision@k*** | ***Recall@k*** | 
+| -------------- | ------------- | ----------------- | -------------- |
+|LGBM Classifier | 0,58101       | 0.3826	 |0.4913 |
+
+A escolha do modelo levou em consideração o tamanho do modelo criado, evitando modelos muito densos e que poderiam acarretar em custos para sua utilização - nesse aspecto descartou-se o uso da Random Forest, e por haver muita semelhança nos resultados entre o XGBoost e LGBM, por opção, foi utilizado o LGBM.
+
+**Generalização do Modelo:**
+
+***Data***  |***Precision@k*** | ***Recall@k*** | 
+| ----------| -----------------| -------------- |
+| Validação | 0.371924         | 0.473303	      |
+| Teste     | 0.326964         | 0.420609	      |
+
+## 5. Resultado final - Performance de Negócio
 
 O resultado final do projeto foi satisfatório para a maior parte das lojas abrangidas nos dados, conforme gráfico abaixo (Essas lojas em específico podem conter particularidades e possivelmente num segundo ciclo desse projeto, algo poderia ser feito para melhor a performance e predição para elas).
 
