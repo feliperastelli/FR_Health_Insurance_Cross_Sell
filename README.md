@@ -91,22 +91,22 @@ O projeto foi desenvolvido através do método CRISP-DM, aplicando os seguintes 
 
 **Passo 10 - Deploy do modelo em produção:** Após execução bem sucedida do modelo, o objetivo foi publica-lo em um ambiente de nuvem para que outras pessoas ou serviços possam acessá-lo. A plataforma para hospedagem em nuvem escolhida foi o Heroku.
 
-**Passo 11 - Planilhas Google:** Como um extra, foi criado uma planilha na plataforma do Google, que permite ao usuário listar os novos clientes, e ao solicitar a predição, a planilha utilizará do modelo em produção e fará o ranking dos clientes através do seu resultado de "score".
+**Passo 11 - Planilha Google:** Como um extra, foi desenvolvida uma planilha na plataforma do Google, que permite ao usuário listar os novos clientes, e ao solicitar a predição, a planilha utilizará do modelo em produção e fará o ranking dos clientes através do seu resultado de "score".
 
 ## 3. Principais insights:
 
-**Hipótese 1:** Lojas com sortimento maior devem vender mais.
-  **Falsa:** Lojas com uma variedade maior vendem MENOS.
+**Hipótese 1:** A maioria dos clientes com carros mais novos já tem seguro.
+  **Verdadeira:** Clientes que possuem carros mais novos, já possuem seguro veicular, logo não teriam interesse em um novo produto.
 
 ![image](https://user-images.githubusercontent.com/77105763/142774353-0b11753d-f737-4cd9-ba9c-9075dc34ee0e.png)
 
-**Hipótese 2:** As lojas devem vender mais ao longo dos anos.
-  **Falsa:** As lojas vendem menos ao longo dos anos.
+**Hipótese 2:** Clientes que pagam mais pelo seguro de saúde anualmente estão menos interessados em comprar outro.
+  **Verdadeira:** Há uma concentração maior de clientes interessados dentro dos que pagam quantias menores de seguro de saúde.
 
 ![image](https://user-images.githubusercontent.com/77105763/142774441-47a4439b-f8c3-458d-a93c-8b22f544a6ce.png)
 
-**Hipótese 3:** Lojas devem vender mais no segundo semestre.
-  **Falsa:** Lojas vendem menos no segundo semestre do ano.
+**Hipótese 3:** Clientes com veículos já danificados, sem sua maioria, já possuem seguro.
+  **Falsa:** A maior parte dos clientes que já sofreram danos em seus veículos, não possuem seguro de automóvel.
   
   ![image](https://user-images.githubusercontent.com/77105763/142774550-6be3c362-d896-46c7-a57a-3b17914b68c1.png)
 
