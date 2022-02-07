@@ -15,7 +15,8 @@ class HealthInsurance(object):
         
     def data_cleaning( self, df1 ):
         
-        df1['policy_sales_channel'] = df1['policy_sales_channel'].astype(int)
+        df1.columns = ['id', 'gender', 'age', 'driving_license', 'region_code', 'previously_insured', 'vehicle_age', 'vehicle_damage', 'annual_premium', 'policy_sales_channel','vintage']
+        #df1['policy_sales_channel'] = df1['policy_sales_channel'].astype(int)
         df1['region_code'] = df1['region_code'].astype(int)
 
         return df1 
@@ -54,8 +55,7 @@ class HealthInsurance(object):
         df3.loc[:, 'policy_sales_channel'] = df3['policy_sales_channel'].map( self.fe_policy_sales_channel_scaler )
         
         # Feature Selection
-        cols_selected = ['annual_premium', 'vintage', 'age', 'region_code', 'vehicle_damage', 'previously_insured',
-                         'policy_sales_channel']
+        cols_selected = ['annual_premium','vintage', 'age', 'region_code', 'vehicle_damage', 'policy_sales_channel', 'previously_insured']
         
         return df3[ cols_selected ]
     
