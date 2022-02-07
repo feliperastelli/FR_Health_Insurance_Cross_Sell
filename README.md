@@ -98,19 +98,19 @@ O projeto foi desenvolvido através do método CRISP-DM, aplicando os seguintes 
 **Hipótese 1:** A maioria dos clientes com carros mais novos já tem seguro.
   **Verdadeira:** Clientes que possuem carros mais novos, já possuem seguro veicular, logo não teriam interesse em um novo produto.
 
-![image](https://user-images.githubusercontent.com/77105763/142774353-0b11753d-f737-4cd9-ba9c-9075dc34ee0e.png)
+![image](Images/hp1.png)
 
 **Hipótese 2:** Clientes que pagam mais pelo seguro de saúde anualmente estão menos interessados em comprar outro.
   **Verdadeira:** Há uma concentração maior de clientes interessados dentro dos que pagam quantias menores de seguro de saúde.
 
-![image](https://user-images.githubusercontent.com/77105763/142774441-47a4439b-f8c3-458d-a93c-8b22f544a6ce.png)
+![image](Images/hp2.png)
 
 **Hipótese 3:** Clientes com veículos já danificados, sem sua maioria, já possuem seguro.
   **Falsa:** A maior parte dos clientes que já sofreram danos em seus veículos, não possuem seguro de automóvel.
   
-  ![image](https://user-images.githubusercontent.com/77105763/142774550-6be3c362-d896-46c7-a57a-3b17914b68c1.png)
+  ![image](Images/hp3.png)
 
-*Demais insights podem ser consultados nos notebooks do projeto.*
+*Demais insights podem ser consultados no notebook do projeto.*
 
 ## 4. Performance dos Modelos de Machine Learning:
 
