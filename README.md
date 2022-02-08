@@ -27,7 +27,7 @@ Em termos financeiros, o modelo apresentado, permite um resultado 2,7x melhor qu
 
 Para visualização do resultado do ranking, foi construído uma planilha na plataforma do Google, para que o usuário possa inserir os dados de novos clientes (ou uma lista) e ter retorno do seu "score" calculado e a ordenação desses novos clientes.
 
-Para acessar basta acessar a planilha, e acessar a função "Health Insurance Prediction". Faça o teste: encurtador.com.br/vFGVZ
+Para acessar basta acessar a planilha, e acessar a função "Health Insurance Prediction". Faça o teste: http://encurtador.com.br/vFGVZ
 
 ![image](Images/sheets_model.png)
 
