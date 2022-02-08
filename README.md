@@ -1,6 +1,6 @@
 
 
-### :pushpin: [__Ler em Inglês__](https://github.com/feliperastelli/FR-Rossmann_Sales_Model/blob/main/README-en.md)
+### :pushpin: [__Ler em Inglês__](https://github.com/feliperastelli/FR_Health_Insurance_Cross_Sell/blob/main/README-en.md)
 
 # Health Insurance - Cross Sell
 ![FR-Health_Insurance_Cross_Sell](Images/capa_novo.png)
