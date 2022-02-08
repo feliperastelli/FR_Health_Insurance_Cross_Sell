@@ -102,7 +102,7 @@ O projeto foi desenvolvido através do método CRISP-DM, aplicando os seguintes 
 
 **Passo 11 - Planilha Google:** Como um extra, foi desenvolvida uma planilha na plataforma do Google, que permite ao usuário listar os novos clientes, e ao solicitar a predição, a planilha utilizará do modelo em produção e fará o ranking dos clientes através do seu resultado de "score".
 
-## 3. Principais insights:
+## 3. Principais insights - Hipóteses:
 
 **Hipótese 1:** A maioria dos clientes com carros mais novos já tem seguro.
   **Verdadeira:** Clientes que possuem carros mais novos, já possuem seguro veicular, logo não teriam interesse em um novo produto.
