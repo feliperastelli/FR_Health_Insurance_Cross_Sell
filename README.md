@@ -166,8 +166,6 @@ A escolha do modelo levou em consideração o tamanho do modelo criado, evitando
 
 ![image](Images/rank.png)
 
-O resultado final do projeto foi satisfatório para a maior parte das lojas abrangidas nos dados, conforme gráfico abaixo (Essas lojas em específico podem conter particularidades e possivelmente num segundo ciclo desse projeto, algo poderia ser feito para melhor a performance e predição para elas).
-
 ### a) Principais Insights sobre os atributos mais relevantes de clientes interessados em adquirir um seguro de automóvel:
 
 - Clientes que já tiveram danos em seus veículos possuem maior interesse em adquirir seguro de automóvel;
